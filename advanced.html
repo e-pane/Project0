@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="container" class="top-right">
+            <a href="index.html">Google Search</a>
+        </div>
+        <div class="flex-container">
+            <div id="mini-google-logo-container">
+                <div class="mini-google-logo">
+                    <span class="blue">G</span>
+                    <span class="red">o</span>
+                    <span class="yellow">o</span>
+                    <span class="blue">g</span>
+                    <span class="green">l</span>
+                    <span class="red">e</span>
+                </div>
+            </div>
+            
+            <div>
+                <p id="advanced-search">Advanced Search</p>
+            </div>
+            <!-- to get a faint line across the whole window-->
+            <div class="line-separator"></div>
+            <!-- OK. there are 4 elements in an outer flexed container (line 13)  And all 4 are 
+             stacked vertically (flex-direction: column) top is mini colored Google logo (line 14-23)
+             next is Advanced Search text (line 25-27). and this is the 3rd.  But this whole element
+             will be a flex box in and of iteslf - nested within the outer flex box.  This nested
+             flex box will also be flex-direction: colum to align 5 rows vertically on top of each other
+             -->
+            <div class="nested-flex-container">
+                <!-- there will be 5 rows in this nested container and this class will style how they
+                 all look-->
+                <div class="flex-row">
+                    <!-- this form will wrap all 5 rows and the advanced search button and link them
+                     all together with this action of sending query parameters (via default get method)
+                     to /search route.  note the query parameters will change based on the type of
+                     advanced search-->
+                    <form action="https://www.google.com/search" method="get">
+                        <div class="flex-row">
+                            <div id="left-header">Find pages with...</div>
+                            <div class="center"></div>
+                            <div id="right-header">To do this in the search box</div>
+                        </div>
+                
+                        <div class="flex-row">
+                            <div class="left">all these words:</div>
+                            <div class="center">
+                                <!-- specific as_q name attribute for all these words - instead 
+                                 of regular q name attribute-->
+                                <input type="text" name="as_q" class="input-box">
+                            </div>
+                            <div class="right">Type the important words:  tricolor rat terrier</div>
+                        </div>
+
+                        <div class="flex-row">
+                            <div class="left">this exact word or phrase:</div>
+                            <div class="center">
+                                <!-- specific as_epq name attribute for this exact word or phrase -->
+                                <input type="text" name="as_epq" class="input-box">
+                            </div>
+                            <div class="right">Put exact words in quotes:  "rat terrier"</div>
+                        </div>
+
+                        <div class="flex-row">
+                            <div class="left">any of these words:</div>
+                            <div class="center">
+                                <!-- specific as_oq name attribute for any of these words -->
+                                <input type="text" name="as_oq" class="input-box">
+                            </div>
+                            <div class="right">Type OR between all the words you want:  miniature OR standard</div>
+                        </div>
+
+                        <div class="flex-row">
+                            <div class="left">none of these words:</div>
+                            <div class="center">
+                                <!-- specific as_eq name attribute for none of these words -->
+                                <input type="text" name="as_eq" class="input-box">
+                            </div>
+                            <div class="right">Put a minus sign just before words you don't want:  -rodent, -"Jack Russell"</div>
+                        </div>
+
+                        <div class="advanced-search-btn-container">
+                            <button type="submit" class="advanced-search-btn">Advanced Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>         
+    </body>
+</html>

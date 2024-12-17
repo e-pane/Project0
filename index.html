@@ -2,11 +2,43 @@
 <html lang="en">
     <head>
         <title>Search</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- mobile responsive-->
+        <link rel="stylesheet" href="styles.css"> <!-- link to my css-->
     </head>
     <body>
-        <form action="https://www.google.com/search">
-            <input type="text" name="q">
-            <input type="submit" value="Google Search">
+        <!-- two link buttons at the top right.  id of container for both and class of top-right
+         each links to the respective html template-->
+        <div id="container" class="top-right">
+            <a href="image.html">Images</a>
+            <a href="advanced.html">Advanced Search</a>
+        </div>
+        <!-- to build the huge Google multi-colored logo.  class for the container, one for the logo-->
+        <div class="google-logo-container">
+            <div class="google-logo">
+                <span class="blue">G</span>
+                <span class="red">o</span>
+                <span class="yellow">o</span>
+                <span class="blue">g</span>
+                <span class="green">l</span>
+                <span class="red">e</span>
+            </div>
+        </div>
+        <!-- single form element to hold the input box, submit button and Feeling Lucky button
+         since input and 2 button items are all wrapped in the same form element they will work 
+         together to send user input as q (query parameter) to either google search or to 
+         the first page using Feeling Lucky - driven by the name attribute "btnI"
+         method="get" is default, but it's there to remind me that get is default for a form
+         unless you specifically want post.  So usual route will be sending q=user-input to the 
+         /search route (via the Google Search button), but the strager route is to send q=user-input
+         AND a value of btnI=I'm%Feeling%Lucky" to the I'm Feeling Lucky "route" to route directly to the
+         first found page result-->
+        <form action="https://www.google.com/search" class="google-search-form" method="get">
+                <input type="text" name="q" class="search-input" >
+                <div class="button-container">
+                    <button type="submit" class="search-btn">Google Search</button>
+                    <button type="submit" name="btnI" value="I'm Feeling Lucky" class="lucky-btn">I'm Feeling Lucky</button>
+                </div>
         </form>
     </body>
 </html>
